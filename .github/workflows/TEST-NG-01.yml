@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'corretto'  # Use Corretto JDK
+          distribution: 'corretto'  # Use Amazon Corretto JDK
 
       - name: Install Maven
         run: |
@@ -24,10 +24,11 @@ jobs:
           sudo apt-get install -y maven  # Install Maven
 
       - name: Build with Maven
-        working-directory: selenium-testng-framework
+        working-directory: selenium-testng-framework-master
         run: mvn clean install  # Build Maven project
 
       - name: Run Selenium Tests
+        working-directory: selenium-testng-framework-master
         run: mvn test -DsuiteXmlFile=testng.xml  # Run TestNG tests with Maven
 
       - name: Archive test results
@@ -35,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: testng-test-results
-          path: target/surefire-reports  # Path to TestNG test results
+          path: selenium-testng-framework-master/target/surefire-reports  # Path to TestNG test results
