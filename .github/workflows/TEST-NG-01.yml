@@ -17,6 +17,8 @@
           DOCKERHUB:
            needs: [build]
            runs-on: ubuntu-latest
+           environment:
+              name: DEVELOPMENT
            steps:
              - name: Checkout code
                uses: actions/checkout@v2
