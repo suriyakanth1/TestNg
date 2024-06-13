@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <listeners>
+        <!-- You can add listeners here if needed -->
+    </listeners>
+
+    <test name="Test" parallel="classes" thread-count="5">
+        <classes>
+            <class name="example.example.tests.GoogleSearchTest" />
+            <class name="example.example.tests.FaceBookLoginTest" />
+            <!-- Add more <class> tags for additional test classes -->
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
